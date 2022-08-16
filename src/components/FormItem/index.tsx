@@ -1,7 +1,8 @@
 import "./styles.css";
 
 import InputMask from "react-input-mask";
-import { kMaxLength } from "buffer";
+
+import { useForm } from "react-hook-form";
 
 const NumberMask = (props: any) => {
   return (
@@ -16,6 +17,7 @@ const NumberMask = (props: any) => {
 
 type Props = {
   label: string;
+  id: string;
   placeholder?: string;
   value?: string | number;
   changeValue?: any;
@@ -40,19 +42,22 @@ export const FormItem = ({
   secondChangeValue,
 
   mask,
+  id,
   maxLength,
 }: Props) => {
   return (
     <div className="Form">
       <label>{label}</label>
       {!mask && (
-        <input
-          type="text"
-          value={value}
-          placeholder={placeholder}
-          onChange={changeValue}
-          maxLength={28}
-        />
+        <>
+          <input
+            type="text"
+            value={value}
+            placeholder={placeholder}
+            maxLength={25}
+            onChange={changeValue}
+          />
+        </>
       )}
       {mask && (
         <NumberMask
