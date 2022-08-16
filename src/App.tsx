@@ -1,43 +1,16 @@
-import React, { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
-// import "./App.css";
+import { ChangeEvent, useState } from "react";
+import { useForm } from "react-hook-form";
 
-import cardFront from "./assets/images/bg-card-front.png";
-import cardBack from "./assets/images/bg-card-back.png";
-import bgDesktop from "./assets/images/bg-main-desktop.png";
-import bgMobile from "./assets/images/bg-main-mobile.png";
-import cardLogo from "./assets/images/card-logo.svg";
-
-import completeLogo from "./assets/images/icon-complete.svg";
-
-import { Grid } from "@mui/material";
-
-import InputMask from "react-input-mask";
 import { AsideLeft } from "./components/AsideLeft";
 import { Form } from "./components/Form";
-import { FixedAssign } from "./components/FixedAssign";
-
-const CardNumberMask = (props: any) => {
-  return (
-    <InputMask
-      mask="9999 9999 9999 9999"
-      id={props.id}
-      value={props.value}
-      onChange={props.onChange}
-      placeholder={props.placeholder}
-      style={props.style}
-    ></InputMask>
-  );
-};
+import { FormItem } from "./components/FormItem";
 
 function App() {
-  const [windowSize, setWindowsSize] = useState(window.screen.width);
-
-  const [name, setName] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [monthExp, setMonthExp] = useState("");
-  const [yearExp, setYearExp] = useState("");
-  const [cvcCode, setCvcCode] = useState<number>();
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState();
+  const [monthCard, setMonthCard] = useState();
+  const [yearCard, setYearCard] = useState();
+  const [cvc, setCvc] = useState();
 
   const {
     register,
@@ -50,21 +23,17 @@ function App() {
   const [buttonClick, setButtonClick] = useState(false);
 
   const handleClick = () => {
-    if (name && cardNumber && monthExp && yearExp && cvcCode) {
+    if (cardName && cardNumber && monthCard && yearCard && cvc) {
       setButtonClick(true);
     }
   };
 
-  const handleReset = () => {
-    setName("");
-    setCardNumber("");
-    setMonthExp("");
-    setYearExp("");
-    setCvcCode(0o0);
-  };
-
   const handleClickContinue = () => {
     setButtonClick(false);
+  };
+
+  const handleName = (e: ChangeEvent<HTMLInputElement>) => {
+    setCardName(e.target.value);
   };
 
   return (
@@ -242,9 +211,48 @@ function App() {
       </div> */}
 
       <div className="ContainerAll">
-        <AsideLeft />
-        <Form />
-        <FixedAssign />
+        <AsideLeft
+          cardName={cardName}
+          cardNumber={cardNumber}
+          monthExp={monthCard}
+          yearExp={yearCard}
+          cvc={cvc}
+        />
+        <Form>
+          <FormItem
+            label="Cardholder Name"
+            value={cardName}
+            changeValue={(e: any) => setCardName(e.target.value.toUpperCase())}
+            placeholder="e.g. Jane Appleseed"
+            maxLength={30}
+          />
+          <FormItem
+            label="Card Number"
+            mask="9999 9999 9999 9999"
+            value={cardNumber}
+            changeValue={(e: any) => setCardNumber(e.target.value)}
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+          <FormItem
+            label="EXP. DATE (MM/YY)"
+            value={monthCard}
+            mask="99"
+            changeValue={(e: any) => setMonthCard(e.target.value)}
+            placeholder="MM"
+            doubleInput={true}
+            secondPlaceholder="YY"
+            secondValue={yearCard}
+            secondChangeValue={(e: any) => setYearCard(e.target.value)}
+          />
+
+          <FormItem
+            label="CVC"
+            mask="999"
+            value={cvc}
+            changeValue={(e: any) => setCvc(e.target.value)}
+            placeholder="e.g. 123"
+          />
+        </Form>
       </div>
     </>
   );

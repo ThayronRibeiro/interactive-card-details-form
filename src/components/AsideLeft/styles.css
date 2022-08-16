@@ -12,6 +12,7 @@
   flex-direction: column;
   position: relative;
 }
+/*CARD FRONT */
 .Container .cardArea .cardFront {
   position: absolute;
   top: 15%;
@@ -22,6 +23,49 @@
   border-radius: 15px;
   box-shadow: 0px 0px 28px -4px rgba(0, 0, 0, 0.5);
 }
+.Container .cardArea .cardFront .cardFrontInfo--logoCard {
+  position: absolute;
+  top: 10%;
+  left: 1.5rem;
+}
+.Container .cardArea .cardFront .cardFrontInfo--logoCard img {
+  box-shadow: none;
+  width: 100%;
+}
+.Container .cardArea .cardFront .cardFrontInfo--name {
+  position: absolute;
+  top: 70%;
+  left: 1.5rem;
+}
+.Container .cardArea .cardFront .cardFrontInfo--name h4 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.Container .cardArea .cardFront .cardFrontInfo--cardNumber {
+  position: absolute;
+  top: 50%;
+  left: 1.5rem;
+}
+
+.Container .cardArea .cardFront .cardFrontInfo--cardNumber h4 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+}
+.Container .cardArea .cardFront .cardFrontInfo--monthExp--yearExp {
+  position: absolute;
+  top: 70%;
+  left: 80%;
+}
+.Container .cardArea .cardFront .cardFrontInfo--monthExp--yearExp h4 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #fff;
+}
+/*CARD BACK */
+
 .Container .cardArea .cardBack {
   position: absolute;
   top: 45%;
@@ -31,6 +75,56 @@
 .Container .cardArea .cardBack img {
   border-radius: 15px;
   box-shadow: 0px 0px 28px -4px rgba(0, 0, 0, 0.5);
+}
+.Container .cardArea .cardBack .cardBackInfo--cvcCode {
+  position: absolute;
+  top: 45%;
+  left: 80%;
+}
+.Container .cardArea .cardBack .cardBackInfo--cvcCode h4 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+@media screen and (max-width: 1280px) {
+  .Container {
+    flex-direction: column;
+    background-image: url("../../assets/images/bg-main-mobile.png");
+    background-size: cover;
+    width: 100vw;
+    height: 20rem;
+  }
+  .Container .cardArea {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .Container .cardArea .cardFront {
+    position: absolute;
+    top: 60%;
+    left: 1;
+    z-index: 999;
+    margin-left: -5rem;
+  }
+  .Container .cardArea .cardFront img {
+    width: 25em;
+  }
+  .Container .cardArea .cardBack {
+    position: absolute;
+    top: 15%;
+    left: 1;
+    z-index: 998;
+    margin-left: 5rem;
+  }
+  .Container .cardArea .cardBack img {
+    width: 25em;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -71,5 +165,46 @@
   }
   .Container .cardArea .cardBack img {
     width: 15em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Container {
+    flex-direction: column;
+    background-image: url("../../assets/images/bg-main-mobile.png");
+    background-size: cover;
+    width: 100vw;
+    height: 12rem;
+  }
+  .Container .cardArea {
+    position: relative;
+    width: inherit;
+    max-width: 100vw;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .Container .cardArea .cardFront {
+    position: absolute;
+    top: 60%;
+    left: 1;
+    z-index: 999;
+    margin-left: -5rem;
+  }
+  .Container .cardArea .cardFront img {
+    width: 13em;
+  }
+  .Container .cardArea .cardBack {
+    position: absolute;
+    top: 15%;
+    left: 1;
+    z-index: 998;
+    margin-left: 5rem;
+  }
+  .Container .cardArea .cardBack img {
+    width: 13em;
   }
 }
