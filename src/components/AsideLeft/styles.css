@@ -78,7 +78,7 @@
 }
 .Container .cardArea .cardBack .cardBackInfo--cvcCode {
   position: absolute;
-  top: 45%;
+  top: 42%;
   left: 80%;
 }
 .Container .cardArea .cardBack .cardBackInfo--cvcCode h4 {
@@ -156,6 +156,19 @@
   .Container .cardArea .cardFront img {
     width: 15em;
   }
+  .Container .cardArea .cardFront .cardFrontInfo--logoCard img {
+    box-shadow: none;
+    width: 70%;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--cardNumber h4 {
+    font-size: 1.2rem;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--name h4 {
+    font-size: 0.8rem;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--monthExp--yearExp h4 {
+    font-size: 0.8rem;
+  }
   .Container .cardArea .cardBack {
     position: absolute;
     top: 15%;
@@ -165,6 +178,9 @@
   }
   .Container .cardArea .cardBack img {
     width: 15em;
+  }
+  .Container .cardArea .cardBack .cardBackInfo--cvcCode h4 {
+    font-size: 0.8rem;
   }
 }
 
@@ -197,6 +213,19 @@
   .Container .cardArea .cardFront img {
     width: 13em;
   }
+  .Container .cardArea .cardFront .cardFrontInfo--logoCard img {
+    box-shadow: none;
+    width: 60%;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--cardNumber h4 {
+    font-size: 0.8rem;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--name h4 {
+    font-size: 0.6rem;
+  }
+  .Container .cardArea .cardFront .cardFrontInfo--monthExp--yearExp h4 {
+    font-size: 0.6rem;
+  }
   .Container .cardArea .cardBack {
     position: absolute;
     top: 15%;
@@ -206,5 +235,8 @@
   }
   .Container .cardArea .cardBack img {
     width: 13em;
+  }
+  .Container .cardArea .cardBack .cardBackInfo--cvcCode h4 {
+    font-size: 0.6rem;
   }
 }
